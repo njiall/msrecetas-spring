@@ -37,7 +37,7 @@ public class RecetaController {
 	public ResponseEntity<?> obtieneRecetaPorNombre(@PathVariable String nombre) {
 		ResponseEntity<?> responseEntity = null;
 		Optional<Receta> optional;
-
+//TODO Tener el cuenta mayusculas/minusculas
 		optional = servicio.obtieneRecetaPorNombre(nombre);
 		if (optional.isPresent()) {
 			Receta recetaLeida = optional.get();

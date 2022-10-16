@@ -104,7 +104,7 @@ public class Receta extends EntidadAbstracta{
 	}
 
 	/**
-	 * @return the ingredientes
+//	 * @return the ingredientes
 	 */
 	public String getIngredientes() {
 		return ingredientes;
