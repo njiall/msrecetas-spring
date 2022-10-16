@@ -14,7 +14,7 @@
 	<name>recetario</name>
 	<description>Servicio de acceso a las recetas</description>
 	<properties>
-		<java.version>17.0.4.1</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
