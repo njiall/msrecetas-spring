@@ -1,0 +1,10 @@
+
+src/main/resources/application2.properties
+
+*.class
+
+target/classes/application2.properties
+
+src/main/resources/application.properties
+
+target/classes/application.properties
