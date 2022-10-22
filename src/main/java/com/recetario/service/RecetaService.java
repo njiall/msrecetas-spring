@@ -29,6 +29,11 @@ public interface RecetaService {
 	 * @return
 	 */
 	public Iterable<Receta> listarRecetas();
+	
+	/**
+	 * Recupera una receta por nombre
+	 */
+	public Optional<Receta> obtieneRecetaPorId(Long id);
 
 	/**
 	 * Recupera una receta por nombre

@@ -34,6 +34,21 @@ public class RecetaController {
 
 		return responseEntity;
 	}
+	
+	@GetMapping("detalle/{id}")
+	public ResponseEntity<?> obtieneDetalleReceta(@PathVariable Long id) {
+		ResponseEntity<?> responseEntity = null;
+		Optional<Receta> optional;
+		optional = servicio.obtieneRecetaPorId(id);
+		if (optional.isPresent()) {
+			Receta recetaLeida = optional.get();
+			responseEntity = ResponseEntity.ok(recetaLeida);
+		} else {
+			responseEntity = ResponseEntity.noContent().build();// 204
+		}
+
+		return responseEntity;
+	}
 
 	@GetMapping("/{nombre}")
 	public ResponseEntity<?> obtieneRecetaPorNombre(@PathVariable String nombre) {

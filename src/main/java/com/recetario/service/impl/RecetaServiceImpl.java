@@ -62,4 +62,9 @@ public class RecetaServiceImpl implements RecetaService {
 		return respuesta;
 	}
 
+	@Override
+	public Optional<Receta> obtieneRecetaPorId(Long id) {
+		return repo.findById(id);
+	}
+
 }
