@@ -35,6 +35,7 @@ public class RecetaController {
 		return responseEntity;
 	}
 	
+	@CrossOrigin(origins = "*")
 	@GetMapping("detalle/{id}")
 	public ResponseEntity<?> obtieneDetalleReceta(@PathVariable Long id) {
 		ResponseEntity<?> responseEntity = null;
