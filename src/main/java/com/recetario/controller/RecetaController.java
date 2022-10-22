@@ -18,7 +18,6 @@ import com.recetario.repository.entities.Receta;
 import com.recetario.service.RecetaService;
 
 @RestController
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET})
 @RequestMapping("receta")
 public class RecetaController {
 
