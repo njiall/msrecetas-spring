@@ -31,7 +31,7 @@ public class RecetaServiceImpl implements RecetaService {
 	}
 
 	@Override
-	public Optional<Receta> obtieneRecetaPorNombre(String nombre) {
+	public Iterable<Receta> obtieneRecetaPorNombre(String nombre) {
 		return repo.findByNombreLike("%"+nombre+"%");
 	}
 

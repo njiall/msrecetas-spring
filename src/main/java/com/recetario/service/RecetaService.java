@@ -38,7 +38,7 @@ public interface RecetaService {
 	/**
 	 * Recupera una receta por nombre
 	 */
-	public Optional<Receta> obtieneRecetaPorNombre(String nombre);
+	public Iterable<Receta> obtieneRecetaPorNombre(String nombre);
 
 	/**
 	 * Recupera una lista de recetas por categoría

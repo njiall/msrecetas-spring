@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.recetario.service.CategoriaServiceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in com.recetario.service.CategoriaServiceTest
+test  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Not yet implemented
+	at com.recetario.service.CategoriaServiceTest.test(CategoriaServiceTest.java:18)
+

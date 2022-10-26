@@ -1,7 +1,5 @@
 package com.recetario.repository;
 
-import java.util.Optional;
-
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.recetario.repository.entities.Receta;
@@ -19,5 +17,5 @@ public interface RecetasRepository extends PagingAndSortingRepository<Receta, Lo
 	 * @param nombre Nombre de la receta
 	 * @return Receta devuelta
 	 */
-	public Optional<Receta> findByNombreLike(String nombre);
+	public Iterable<Receta> findByNombreLike(String nombre);
 }

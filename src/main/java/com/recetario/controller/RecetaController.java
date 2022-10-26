@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.recetario.modelo.FiltroBusqueda;
 import com.recetario.repository.entities.Receta;
+import com.recetario.service.BuscadorService;
 import com.recetario.service.RecetaService;
 
 @RestController
@@ -23,14 +26,17 @@ public class RecetaController {
 	@Autowired
 	RecetaService servicio;
 	
+	@Autowired
+	BuscadorService buscador;
+	
 	@GetMapping
 	@CrossOrigin(origins = "*")
 	public ResponseEntity<?> listarRecetas() {
 		ResponseEntity<?> responseEntity = null;
-		Iterable<Receta> listadoCursos = null;
+		Iterable<Receta> listadoRecetas = null;
 
-		listadoCursos = servicio.listarRecetas();
-		responseEntity = ResponseEntity.ok(listadoCursos);
+		listadoRecetas = servicio.listarRecetas();
+		responseEntity = ResponseEntity.ok(listadoRecetas);
 
 		return responseEntity;
 	}
@@ -51,22 +57,25 @@ public class RecetaController {
 		return responseEntity;
 	}
 	
-	
-	
+	@GetMapping("/buscador")
+	public ResponseEntity<?> buscarRecetas(@RequestBody FiltroBusqueda filtro) {
+		ResponseEntity<?> responseEntity = null;
+		Iterable<Receta> listadoRecetas = null;
+
+		listadoRecetas = buscador.buscarRecetasTemplate(filtro);
+		responseEntity = ResponseEntity.ok(listadoRecetas);
+
+		return responseEntity;
+	}
 	
 
 	@GetMapping("/{nombre}")
 	public ResponseEntity<?> obtieneRecetaPorNombre(@PathVariable String nombre) {
 		ResponseEntity<?> responseEntity = null;
-		Optional<Receta> optional;
-//TODO Tener el cuenta mayusculas/minusculas
-		optional = servicio.obtieneRecetaPorNombre(nombre);
-		if (optional.isPresent()) {
-			Receta recetaLeida = optional.get();
-			responseEntity = ResponseEntity.ok(recetaLeida);
-		} else {
-			responseEntity = ResponseEntity.noContent().build();// 204
-		}
+		Iterable<Receta> listadoRecetas = null;
+
+		listadoRecetas = servicio.obtieneRecetaPorNombre(nombre);
+		responseEntity = ResponseEntity.ok(listadoRecetas);
 
 		return responseEntity;
 	}

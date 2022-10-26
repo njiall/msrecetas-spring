@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.recetario.service.BuscadorServiceImplTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.176 s <<< FAILURE! - in com.recetario.service.BuscadorServiceImplTest
+testCriteriaFiltroEtiquetas  Time elapsed: 0.036 s  <<< ERROR!
+org.hibernate.exception.DataException: could not execute query
+	at com.recetario.service.BuscadorServiceImplTest.testCriteriaFiltroEtiquetas(BuscadorServiceImplTest.java:56)
+Caused by: org.postgresql.util.PSQLException: El índice de la columna está fuera de rango: 1, número de columnas: 0.
+	at com.recetario.service.BuscadorServiceImplTest.testCriteriaFiltroEtiquetas(BuscadorServiceImplTest.java:56)
+
