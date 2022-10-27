@@ -57,7 +57,8 @@ public class RecetaController {
 		return responseEntity;
 	}
 	
-	@GetMapping("/buscador")
+	@PostMapping("/buscador")
+	@CrossOrigin(origins = "*")
 	public ResponseEntity<?> buscarRecetas(@RequestBody FiltroBusqueda filtro) {
 		ResponseEntity<?> responseEntity = null;
 		Iterable<Receta> listadoRecetas = null;

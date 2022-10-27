@@ -81,22 +81,22 @@ public class BuscadorServiceImpl implements BuscadorService {
 
 	@Override
 	public Iterable<Receta> buscarRecetasTemplate(FiltroBusqueda filtro) {
-
+//TODO Revisar las query
 		StringBuilder sql = new StringBuilder(" SELECT * ").append(" FROM recetas ").append(" WHERE 1=1 ");
 
 		if (StringUtils.isNotEmpty(filtro.getNombre())) {
-			sql.append(" AND nombre like '%").append(filtro.getNombre()).append("%' ");
+			sql.append(" AND UPPER(nombre) like '%").append(filtro.getNombre().toUpperCase()).append("%' ");
 		}
 		if (StringUtils.isNotEmpty(filtro.getCategoria())) {
-			sql.append(" AND categoria like '%").append(filtro.getCategoria()).append("%' ");
+			sql.append(" AND UPPER(categoria) like '%").append(filtro.getCategoria().toUpperCase()).append("%' ");
 		}
 
 		if (StringUtils.isNotEmpty(filtro.getEtiquetas())) {
 			String[] etiq = filtro.getEtiquetas().split(",");
 
-			sql.append(" AND ( ").append(" etiquetas like '%").append(etiq[0]).append("%' ");
+			sql.append(" AND ( ").append(" UPPER(etiquetas) like '%").append(etiq[0].toUpperCase()).append("%' ");
 			for (int i = 1; i < etiq.length; i++) {
-				sql.append(" AND etiquetas like '%").append(etiq[i]).append("%' ");
+				sql.append(" OR UPPER(etiquetas) like '%").append(etiq[i].toUpperCase()).append("%' ");
 			}
 
 			sql.append(" ) ");
