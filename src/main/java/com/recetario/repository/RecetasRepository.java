@@ -18,4 +18,11 @@ public interface RecetasRepository extends PagingAndSortingRepository<Receta, Lo
 	 * @return Receta devuelta
 	 */
 	public Iterable<Receta> findByNombreLike(String nombre);
+	
+	/**
+	 * Recupera el listado de recetas ordenado por nombre
+	 * 
+	 * @return
+	 */
+	public Iterable<Receta> findAllByOrderByNombre();
 }

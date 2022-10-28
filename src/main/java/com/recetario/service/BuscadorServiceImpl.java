@@ -109,6 +109,7 @@ public class BuscadorServiceImpl implements BuscadorService {
 		if (filtro.getFechaDesde() != null) {
 			sql.append(" AND fecha_alta >= TO_DATE('").append(filtro.getFechaDesde()).append("','Dy Mon DD HH24:MI:SS')");
 		}
+		sql.append(" ORDER BY nombre ");
 
 		return jdbcTemplate.query(sql.toString(), new BeanPropertyRowMapper<>(Receta.class));
 

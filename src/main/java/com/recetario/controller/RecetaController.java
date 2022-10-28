@@ -70,16 +70,16 @@ public class RecetaController {
 	}
 	
 
-	@GetMapping("/{nombre}")
-	public ResponseEntity<?> obtieneRecetaPorNombre(@PathVariable String nombre) {
-		ResponseEntity<?> responseEntity = null;
-		Iterable<Receta> listadoRecetas = null;
-
-		listadoRecetas = servicio.obtieneRecetaPorNombre(nombre);
-		responseEntity = ResponseEntity.ok(listadoRecetas);
-
-		return responseEntity;
-	}
+//	@GetMapping("/{nombre}")
+//	public ResponseEntity<?> obtieneRecetaPorNombre(@PathVariable String nombre) {
+//		ResponseEntity<?> responseEntity = null;
+//		Iterable<Receta> listadoRecetas = null;
+//
+//		listadoRecetas = servicio.obtieneRecetaPorNombre(nombre);
+//		responseEntity = ResponseEntity.ok(listadoRecetas);
+//
+//		return responseEntity;
+//	}
 
 	@PostMapping("/cargarRecetas")
 	public ResponseEntity<?> cargarRecetas(@RequestBody List<Receta> recetas) {

@@ -22,7 +22,7 @@ public class RecetaServiceImpl implements RecetaService {
 
 	@Override
 	public Iterable<Receta> listarRecetas() {
-		return repo.findAll();
+		return repo.findAllByOrderByNombre();
 	}
 
 	@Override
