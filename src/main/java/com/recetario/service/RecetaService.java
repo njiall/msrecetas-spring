@@ -57,6 +57,6 @@ public interface RecetaService {
 	 * @param receta
 	 * @return
 	 */
-	boolean cargarRecetas(List<Receta> receta);
+	public Iterable<Receta> cargarRecetas(List<Receta> receta);
 
 }

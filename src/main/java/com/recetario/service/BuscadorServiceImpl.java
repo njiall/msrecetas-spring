@@ -94,9 +94,9 @@ public class BuscadorServiceImpl implements BuscadorService {
 		if (StringUtils.isNotEmpty(filtro.getEtiquetas())) {
 			String[] etiq = filtro.getEtiquetas().split(",");
 
-			sql.append(" AND ( ").append(" UPPER(etiquetas) like '%").append(etiq[0].toUpperCase()).append("%' ");
+			sql.append(" AND ( ").append(" UPPER(etiquetas) like '%").append(etiq[0].toUpperCase().trim()).append("%' ");
 			for (int i = 1; i < etiq.length; i++) {
-				sql.append(" OR UPPER(etiquetas) like '%").append(etiq[i].toUpperCase()).append("%' ");
+				sql.append(" OR UPPER(etiquetas) like '%").append(etiq[i].toUpperCase().trim()).append("%' ");
 			}
 
 			sql.append(" ) ");

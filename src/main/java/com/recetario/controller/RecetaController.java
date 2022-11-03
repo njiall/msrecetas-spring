@@ -84,12 +84,11 @@ public class RecetaController {
 	@PostMapping("/cargarRecetas")
 	public ResponseEntity<?> cargarRecetas(@RequestBody List<Receta> recetas) {
 		ResponseEntity<?> responseEntity = null;
-		boolean respuestaOk = false;
+		Iterable<Receta> listaRecetas= null ;
 
-		respuestaOk = servicio.cargarRecetas(recetas);
-		if (respuestaOk) {
-
-			responseEntity = ResponseEntity.ok("Se han cargado correctamente las recetas");
+		listaRecetas = servicio.cargarRecetas(recetas);
+		if (listaRecetas != null) {
+			responseEntity = ResponseEntity.ok(listaRecetas);
 		} else {
 			responseEntity = ResponseEntity.notFound().build();// 404/
 		}

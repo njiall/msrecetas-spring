@@ -49,13 +49,13 @@ public class RecetaServiceImpl implements RecetaService {
 
 	@Override
 	@Transactional
-	public boolean cargarRecetas(List<Receta> receta) {
-		boolean respuesta = true;
+	public Iterable<Receta> cargarRecetas(List<Receta> receta) {
+		Iterable<Receta> respuesta = receta;
 
 		try {
 			receta.forEach(a -> repo.save(a));
 		} catch (Exception e) {
-			respuesta = false;
+			respuesta = null;
 			throw e;
 		}
 

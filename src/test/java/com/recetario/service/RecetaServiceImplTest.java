@@ -50,7 +50,7 @@ class RecetaServiceImplTest {
 		List<Receta> recetas = new ArrayList<>();
 		Receta rec = new Receta();
 		recetas.add(rec);
-		boolean respuesta = servicio.cargarRecetas(recetas);
-		assertTrue(respuesta);
+		Iterable<Receta>  respuesta = servicio.cargarRecetas(recetas);
+		assertNotNull(respuesta);
 	}
 }
